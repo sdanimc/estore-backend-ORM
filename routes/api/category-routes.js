@@ -8,8 +8,8 @@ router.get('/', (req, res) => {
   Category.findAll({
     include: [Product]
   })
-  .then((cats) => res.json(cats))
-  .catch((err) => res.status(500).json(err));
+    .then((cats) => res.json(cats))
+    .catch((err) => res.status(500).json(err));
 });
 
 router.get('/:id', (req, res) => {
@@ -17,28 +17,33 @@ router.get('/:id', (req, res) => {
   Category.findByPk(req.params.id, {
     include: [Product]
   })
-  .then((cat) => res.json(cat))
-  .catch((err) => res.status(404).json(err));
+    .then((cat) => res.json(cat))
+    .catch((err) => res.status(404).json(err));
 });
 
 router.post('/', (req, res) => {
   // create a new category
   Category.create(req.body)
-  .then((newCat) => res.json(newCat))
-  .catch((err) => res.status(500).json(err));
+    .then((newCat) => res.json(newCat))
+    .catch((err) => res.status(500).json(err));
 });
 
 router.put('/:id', (req, res) => {
   // update a category by its `id` value
   Category.update(req.body, {
-    where: {id: req.params.id}
+    where: { id: req.params.id }
   })
-.then((updatedCat)=> res.json(updatedCat))
-.catch((err)=> res.status(400).json(err));
+    .then((updatedCat) => res.json(updatedCat))
+    .catch((err) => res.status(400).json(err));
 });
 
 router.delete('/:id', (req, res) => {
-  // delete a category by its `id` value
+  // delete a category by its `id` value'
+  Category.destroy({
+    where: { id: req.params.id }
+  })
+    .then((deleteCat) => res.json(deleteCat))
+    .catch((err) => res.json(err));
 });
 
 module.exports = router;

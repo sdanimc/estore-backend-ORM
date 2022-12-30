@@ -2,13 +2,6 @@
 ## Description
   Back end code for a store website that uses MySQL, Sequelize and object-realtional mapping to navigate a database of the store's products
   
-
-  ## Table of Contents
-  
-  - [Installation](#installation)
-  - [Usage](#usage)
-  - [Credits](#credits) 
-  
   ## Installation
   To download this application, copy the https code link, clone the code to your computer and open in a coding studio. Then use 'npm init -y' to load the neccessary packages. You must create a .env similar to the .env example file in order to connect with you MySQL database. 
 
